@@ -1,0 +1,39 @@
+﻿@model Game.Models.Hero
+
+@{
+    ViewData["Title"] = "Stwórz postać";
+    var classes = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Wybierz klasę", Value = "" },
+        new SelectListItem { Text = "Wojownik", Value = "Wojownik" },
+        new SelectListItem { Text = "Mag", Value = "Mag" },
+        new SelectListItem { Text = "Łucznik", Value = "Łucznik" }
+    };
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" action="@Url.Action("CreateHero", "Character")">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="Name">Imię postaci</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Class">Klasa postaci</label>
+        @Html.DropDownListFor(m => m.Class, classes, new { @class = "form-control", id = "ClassSelect" })
+    </div>
+
+    <div>
+        <p>Siła: <span id="StrengthValue">10</span> <span id="StrengthBonus" class="text-success"></span></p>
+        <p>Zręczność: <span id="DexterityValue">10</span> <span id="DexterityBonus" class="text-success"></span></p>
+        <p>Inteligencja: <span id="IntelligenceValue">10</span> <span id="IntelligenceBonus" class="text-success"></span></p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Stwórz postać</button>
+</form>
+
+
+<script src="/js/createHero.js"></script>

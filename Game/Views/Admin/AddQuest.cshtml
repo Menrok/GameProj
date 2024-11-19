@@ -1,0 +1,23 @@
+﻿@model Game.Models.Quest
+
+<h2>Dodaj Quest</h2>
+
+<form asp-action="AddQuest" method="post">
+    <div class="form-group">
+        <label for="Name">Nazwa</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Description">Opis</label>
+        <textarea class="form-control" id="Description" name="Description" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Difficulty">Trudność</label>
+        <input type="text" class="form-control" id="Difficulty" name="Difficulty" required />
+    </div>
+    <div class="form-group">
+        <label for="RewardExperience">Doświadczenie za ukończenie</label>
+        <input type="number" class="form-control" id="RewardExperience" name="RewardExperience" required />
+    </div>
+    <button type="submit" class="btn btn-success">Dodaj Quest</button>
+</form>

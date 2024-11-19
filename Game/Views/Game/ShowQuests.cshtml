@@ -1,0 +1,21 @@
+﻿@model Game.Models.QuestsViewModel
+
+<div class="container">
+    <h1>Misje dla @Model.Hero.Name</h1>
+
+    <h2>Dostępne misje</h2>
+    <ul class="list-group">
+        @foreach (var quest in Model.Quests)
+        {
+            <li class="list-group-item">
+                <h4>@quest.Name</h4>
+                <p>@quest.Description</p>
+                <p><strong>Trudność:</strong> @quest.Difficulty</p>
+                <p><strong>Doświadczenie za ukończenie:</strong> @quest.RewardExperience</p>
+                <a href="@Url.Action("StartQuest", "Game", new { questId = quest.Id })" class="btn btn-primary">
+                    Rozpocznij
+                </a>
+            </li>
+        }
+    </ul>
+</div>
