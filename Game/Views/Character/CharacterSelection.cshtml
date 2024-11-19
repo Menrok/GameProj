@@ -4,31 +4,38 @@
     ViewData["Title"] = "Wybór postaci";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="form-container">
+    <h2>@ViewData["Title"]</h2>
 
-@if (Model != null && Model.Count > 0)
-{
-    <h3>Wybierz swoją postać:</h3>
-    <ul>
-        @foreach (var hero in Model)
-        {
-            <li>
-                <p>Imię: @hero.Name</p>
-                <p>Klasa: @hero.Class</p>
-                <p>Level: @hero.Level</p>
-                <a href="@Url.Action("SelectHero", "Character", new { id = hero.Id })" class="btn btn-success">Wybierz</a>
-                <a href="@Url.Action("EditHero", "Character", new { id = hero.Id })" class="btn btn-warning">Edytuj</a>
-                <form method="post" action="@Url.Action("DeleteHero", "Character", new { id = hero.Id })" style="display:inline;">
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="btn btn-danger">Usuń</button>
-                </form>
-            </li>
-        }
-    </ul>
-}
-else
-{
-    <p>Nie masz jeszcze postaci. Aby rozpocząć grę, stwórz swoją postać.</p>
+    <div class="actions">
+        <a href="@Url.Action("CreateHero", "Character")" class="btn btn-small btn-primary">Stwórz nową postać</a>
+    </div>
 
-    <a href="@Url.Action("CreateHero", "Character")" class="btn btn-primary">Stwórz nową postać</a>
-}
+    @if (Model != null && Model.Count > 0)
+    {
+        <h3>Wybierz swoją postać:</h3>
+        <ul class="hero-list">
+            @foreach (var hero in Model)
+            {
+                <li class="hero-item">
+                    <p><strong>Imię:</strong> @hero.Name</p>
+                    <p><strong>Klasa:</strong> @hero.Class</p>
+                    <p><strong>Level:</strong> @hero.Level</p>
+                    <div class="hero-actions">
+                        <a href="@Url.Action("SelectHero", "Character", new { id = hero.Id })" class="btn btn-small btn-success">Wybierz</a>
+                        <a href="@Url.Action("EditHero", "Character", new { id = hero.Id })" class="btn btn-small btn-warning">Edytuj</a>
+                        <form method="post" action="@Url.Action("DeleteHero", "Character", new { id = hero.Id })" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-small btn-danger">Usuń</button>
+                        </form>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Nie masz jeszcze postaci. Aby rozpocząć grę, stwórz swoją postać.</p>
+        <a href="@Url.Action("CreateHero", "Character")" class="btn btn-small btn-primary">Stwórz nową postać</a>
+    }
+</div>

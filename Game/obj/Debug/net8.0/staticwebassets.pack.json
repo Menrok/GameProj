@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\images\\Tlo.jpg",
+      "PackagePath": "staticwebassets\\images\\Tlo.jpg"
     },
     {
       "Id": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\js\\createHero.js",
