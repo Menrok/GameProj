@@ -46,8 +46,9 @@ namespace Game.Controllers
                 return NotFound();
             }
 
-            return RedirectToAction("Game", "Game", new { id = hero.Id });
+            return RedirectToAction("GameDashboard", "Game", new { heroId = hero.Id });
         }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateHero(Hero hero)
@@ -58,10 +59,16 @@ namespace Game.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _context.Users.Include(u => u.Heroes).FirstOrDefaultAsync(u => u.Email == email);
             if (user == null)
             {
                 return RedirectToAction("Login", "Account");
+            }
+
+            if (user.Heroes != null && user.Heroes.Count >= 4)
+            {
+                TempData["Error"] = "Możesz stworzyć maksymalnie 4 postacie.";
+                return RedirectToAction("CharacterSelection");
             }
 
             hero.UserId = user.Id;
@@ -69,13 +76,19 @@ namespace Game.Controllers
             switch (hero.Class)
             {
                 case "Warrior":
-                    hero.Strength += 10;
+                    hero.Strength = 20;
+                    hero.Intelligence = 10;
+                    hero.Dexterity = 10;
                     break;
                 case "Mage":
-                    hero.Intelligence += 10;
+                    hero.Strength = 10;
+                    hero.Intelligence = 20;
+                    hero.Dexterity = 10;
                     break;
                 case "Archer":
-                    hero.Dexterity += 10;
+                    hero.Strength = 10;
+                    hero.Intelligence = 10;
+                    hero.Dexterity = 20; 
                     break;
                 default:
                     break;
@@ -86,6 +99,7 @@ namespace Game.Controllers
 
             return RedirectToAction("CharacterSelection");
         }
+
 
         [HttpGet]
         public async Task<IActionResult> EditHero(int id)

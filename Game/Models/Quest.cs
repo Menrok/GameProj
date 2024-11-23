@@ -8,7 +8,8 @@
         public string Difficulty { get; set; }
         public int RewardExperience { get; set; }
 
-        public int HeroId { get; set; }
-        public Hero Hero { get; set; }
+        public bool IsCompleted { get; set; } = false;
+
+        public ICollection<HeroQuest> HeroQuests { get; set; } = new List<HeroQuest>();
     }
 }

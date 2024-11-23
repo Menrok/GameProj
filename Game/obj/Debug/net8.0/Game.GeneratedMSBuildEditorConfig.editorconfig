@@ -26,12 +26,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\PH\Desktop\Programowanie\NET\Game\Game
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkSXRlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/AddQuest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUXVlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/AdminDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/EditItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEl0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/EditQuest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/ItemList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSXRlbUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Admin/QuestList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUXVlc3RMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Character/CharacterSelection.cshtml]
@@ -46,12 +66,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyXEVkaXRIZXJvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/Game.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxHYW1lLmNzaHRtbA==
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/GameDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxHYW1lRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/ShowQuests.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxTaG93UXVlc3RzLmNzaHRtbA==
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/Hero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxIZXJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/Missions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxNaXNzaW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/QuestProgress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxRdWVzdFByb2dyZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Game/Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVxTaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PH/Desktop/Programowanie/NET/Game/Game/Views/Home/Index.cshtml]

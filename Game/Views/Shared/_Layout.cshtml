@@ -23,14 +23,54 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        @if (ViewContext.HttpContext.Session.GetString("UserRole") == "Admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AdminDashboard">Panel Administratora</a>
+                            </li>
+                            <li class="nav-item border-left">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Character" asp-action="CharacterSelection">Wybór postaci</a>
+                            </li>
+
+                            @if (ViewData["HeroId"] != null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Missions" asp-route-heroId="@ViewData["HeroId"]">Misje</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Hero" asp-route-heroId="@ViewData["HeroId"]">Bohater</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Shop" asp-route-heroId="@ViewData["HeroId"]">Sklep</a>
+                                </li>
+                            }
+                        }
+                        else if (ViewContext.HttpContext.Session.GetString("UserRole") == "User")
+                        {
+                            <li class="nav-item border-left">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Character" asp-action="CharacterSelection">Wybór postaci</a>
+                            </li>
+
+                            @if (ViewData["HeroId"] != null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Missions" asp-route-heroId="@ViewData["HeroId"]">Misje</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Hero" asp-route-heroId="@ViewData["HeroId"]">Bohater</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Shop" asp-route-heroId="@ViewData["HeroId"]">Sklep</a>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+
     <div class="containerGl">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qHLVD5w9WvSftHlTAguY4Ex7KJQAu784Ts84FEM8iQk=",
+  "Hash": "3sEZgeCzrAK6Hmn+K0oOa1PuJ9ZSAzSdHm8rAQuZwVI=",
   "Source": "Game",
   "BasePath": "_content/Game",
   "Mode": "Default",
@@ -129,25 +129,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Tlo.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\js\\createHero.js",
-      "SourceId": "Game",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\",
-      "BasePath": "_content/Game",
-      "RelativePath": "js/createHero.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\createHero.js"
     },
     {
       "Identity": "C:\\Users\\PH\\Desktop\\Programowanie\\NET\\Game\\Game\\wwwroot\\js\\site.js",

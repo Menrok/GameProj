@@ -1,3 +1,0 @@
-﻿Logowanie dla Admina
-Login: admin@game.pl
-Hasło: ADMIN123
