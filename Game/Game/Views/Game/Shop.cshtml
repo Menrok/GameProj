@@ -1,0 +1,206 @@
+﻿@model Game.Models.Hero
+
+@{
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">
+        @errorMessage
+    </div>
+}
+
+<div class="container">
+    <h2 class="text-center my-4">Sklep</h2>
+
+    <ul class="nav nav-tabs" id="shopTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="weaponTab" data-bs-toggle="tab" href="#weapons" role="tab" aria-controls="weapons" aria-selected="true">Broń</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="armorTab" data-bs-toggle="tab" href="#armor" role="tab" aria-controls="armor" aria-selected="false">Zbroje</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="amuletTab" data-bs-toggle="tab" href="#amulets" role="tab" aria-controls="amulets" aria-selected="false">Amulety</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="myEqTab" data-bs-toggle="tab" href="#myEq" role="tab" aria-controls="myEq" aria-selected="false">Moje EQ</a>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="shopTabsContent">
+        <div class="tab-pane fade show active" id="weapons" role="tabpanel" aria-labelledby="weaponTab">
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nazwa</th>
+                            <th scope="col">Siła</th>
+                            <th scope="col">Zręczność</th>
+                            <th scope="col">Inteligencja</th>
+                            <th scope="col">Obrona</th>
+                            <th scope="col">Życie</th>
+                            <th scope="col">Cena</th>
+                            <th scope="col">Akcja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.Weapons as List<Game.Models.Item>)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.BonusStrength</td>
+                                <td>@item.BonusDexterity</td>
+                                <td>@item.BonusIntelligence</td>
+                                <td>@item.BonusDefense</td>
+                                <td>@item.BonusHealth</td>
+                                <td>@item.Price Złota</td>
+                                <td>
+                                    <form asp-action="PurchaseItem" method="post">
+                                        <input type="hidden" name="heroId" value="@Model.Id" />
+                                        <input type="hidden" name="itemId" value="@item.Id" />
+                                        <button type="submit" class="btn btn-primary btn-smaller">Kup</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="armor" role="tabpanel" aria-labelledby="armorTab">
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nazwa</th>
+                            <th scope="col">Siła</th>
+                            <th scope="col">Zręczność</th>
+                            <th scope="col">Inteligencja</th>
+                            <th scope="col">Obrona</th>
+                            <th scope="col">Życie</th>
+                            <th scope="col">Cena</th>
+                            <th scope="col">Akcja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.Armors as List<Game.Models.Item>)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.BonusStrength</td>
+                                <td>@item.BonusDexterity</td>
+                                <td>@item.BonusIntelligence</td>
+                                <td>@item.BonusDefense</td>
+                                <td>@item.BonusHealth</td>
+                                <td>@item.Price Złota</td>
+                                <td>
+                                    <form asp-action="PurchaseItem" method="post">
+                                        <input type="hidden" name="heroId" value="@Model.Id" />
+                                        <input type="hidden" name="itemId" value="@item.Id" />
+                                        <button type="submit" class="btn btn-primary btn-smaller">Kup</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="amulets" role="tabpanel" aria-labelledby="amuletTab">
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nazwa</th>
+                            <th scope="col">Siła</th>
+                            <th scope="col">Zręczność</th>
+                            <th scope="col">Inteligencja</th>
+                            <th scope="col">Obrona</th>
+                            <th scope="col">Życie</th>
+                            <th scope="col">Cena</th>
+                            <th scope="col">Akcja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.Amulets as List<Game.Models.Item>)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.BonusStrength</td>
+                                <td>@item.BonusDexterity</td>
+                                <td>@item.BonusIntelligence</td>
+                                <td>@item.BonusDefense</td>
+                                <td>@item.BonusHealth</td>
+                                <td>@item.Price Złota</td>
+                                <td>
+                                    <form asp-action="PurchaseItem" method="post">
+                                        <input type="hidden" name="heroId" value="@Model.Id" />
+                                        <input type="hidden" name="itemId" value="@item.Id" />
+                                        <button type="submit" class="btn btn-primary btn-smaller">Kup</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="myEq" role="tabpanel" aria-labelledby="myEqTab">
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nazwa</th>
+                            <th scope="col">Siła</th>
+                            <th scope="col">Zręczność</th>
+                            <th scope="col">Inteligencja</th>
+                            <th scope="col">Obrona</th>
+                            <th scope="col">Życie</th>
+                            <th scope="col">Cena</th>
+                            <th scope="col">Akcja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var inventory = ViewBag.Inventory as List<Game.Models.Item>;
+                        }
+                        @if (inventory != null && inventory.Any())
+                        {
+                            foreach (var item in inventory)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.BonusStrength</td>
+                                    <td>@item.BonusDexterity</td>
+                                    <td>@item.BonusIntelligence</td>
+                                    <td>@item.BonusDefense</td>
+                                    <td>@item.BonusHealth</td>
+                                    <td>@item.Price Złota</td>
+                                    <td>
+                                        <form asp-action="SellItem" method="post">
+                                            <input type="hidden" name="heroId" value="@Model.Id" />
+                                            <input type="hidden" name="itemId" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger btn-smaller">Sprzedaj</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center">Brak przedmiotów w ekwipunku.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

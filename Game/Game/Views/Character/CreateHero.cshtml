@@ -1,0 +1,50 @@
+﻿@model Game.Models.Hero
+
+@{
+    ViewData["Title"] = "Stwórz postać";
+    var classes = new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Wojownik", Value = "Wojownik" },
+        new SelectListItem { Text = "Mag", Value = "Mag" },
+        new SelectListItem { Text = "Łucznik", Value = "Łucznik" }
+    };
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container">
+    <form method="post" action="@Url.Action("CreateHero", "Character")">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group text-center">
+            <label for="Name" class="h5">Imię postaci</label>
+            <input type="text" class="form-control w-50 mx-auto" id="Name" name="Name" required />
+        </div>
+
+        <div class="form-group text-center">
+            <label for="Class" class="h5">Klasa postaci</label>
+            @Html.DropDownListFor(m => m.Class, classes, new { @class = "form-control w-50 mx-auto", id = "ClassSelect" })
+            @Html.ValidationMessageFor(m => m.Class, "", new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group text-center">
+            <h4>Statystyki postaci</h4>
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <p><strong>Siła:</strong> <span id="StrengthValue">10</span> <span id="StrengthBonus" class="text-success"></span></p>
+                </div>
+                <div class="col-md-3">
+                    <p><strong>Zręczność:</strong> <span id="DexterityValue">10</span> <span id="DexterityBonus" class="text-success"></span></p>
+                </div>
+                <div class="col-md-3">
+                    <p><strong>Inteligencja:</strong> <span id="IntelligenceValue">10</span> <span id="IntelligenceBonus" class="text-success"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Stwórz postać</button>
+        </div>
+    </form>
+</div>

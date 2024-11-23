@@ -1,0 +1,33 @@
+﻿@model Game.Models.Hero
+
+<div class="container">
+    <h2 class="text-center my-4">Misje</h2>
+
+    <div style="max-height: 400px; overflow-y: auto;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nazwa Misji</th>
+                    <th>Opis</th>
+                    <th>Akcja</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var quest in ViewBag.Quests as List<Game.Models.Quest>)
+                {
+                    <tr>
+                        <td>@quest.Name</td>
+                        <td>@quest.Description</td>
+                        <td>
+                            <form asp-action="QuestProgress" method="get">
+                                <input type="hidden" name="heroId" value="@Model.Id" />
+                                <input type="hidden" name="questId" value="@quest.Id" />
+                                <button type="submit" class="btn btn-small">Zacznij Misję</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

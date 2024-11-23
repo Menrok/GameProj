@@ -1,0 +1,62 @@
+﻿@model List<Game.Models.Hero>
+
+@{
+    ViewData["Title"] = "Wybór postaci";
+}
+
+<div class="">
+    <h1>@ViewData["Title"]</h1>
+
+
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Klasa</th>
+                    <th>Level</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var hero in Model)
+                {
+                    <tr>
+                        <td>@hero.Name</td>
+                        <td>@hero.Class</td>
+                        <td>@hero.Level</td>
+                        <td>
+                            <div class="hero-actions">
+                                <a href="@Url.Action("SelectHero", "Character", new { id = hero.Id })" class="btn-action btn-success">Wybierz</a>
+                                <a href="@Url.Action("EditHero", "Character", new { id = hero.Id })" class="btn-action btn-warning">Edytuj</a>
+                                <form method="post" action="@Url.Action("DeleteHero", "Character", new { id = hero.Id })" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn-action btn-danger">Usuń</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nie masz jeszcze postaci. Aby rozpocząć grę, stwórz swoją postać.</p>
+    }
+
+    <div class="text-center">
+        <div class="actions">
+            <a href="@Url.Action("CreateHero", "Character")" class="btn btn-primary">Stwórz nową postać</a>
+        </div>
+    </div>
+    @if (TempData["Error"] != null)
+    {
+        <div class="text-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+</div>

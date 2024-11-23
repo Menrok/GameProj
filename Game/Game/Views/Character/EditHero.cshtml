@@ -1,0 +1,33 @@
+﻿@model Game.Models.Hero
+
+@{
+    ViewData["Title"] = "Edytuj postać";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+<div class="container">
+    <form method="post" action="@Url.Action("EditHero", "Character", new { id = Model.Id })">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="form-group text-center">
+            <label for="Name" class="h5">Imię postaci</label>
+            <input type="text" class="form-control w-50 mx-auto" id="Name" name="Name" value="@Model.Name" required />
+        </div>
+
+        <div class="form-group text-center">
+            <label for="Class" class="h5">Klasa postaci</label>
+            <input type="text" class="form-control w-50 mx-auto" id="Class" name="Class" value="@Model.Class" readonly />
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+        </div>
+    </form>
+
+    <div class="form-group text-center mt-3">
+        <a href="@Url.Action("CharacterSelection", "Character")" class="btn btn-secondary">Powrót do wyboru postaci</a>
+    </div>
+</div>
